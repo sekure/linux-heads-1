@@ -837,7 +837,7 @@ static int cxusb_dvico_xc3028_tuner_attach(struct dvb_usb_adapter *adap)
 		.i2c_addr  = 0x61,
 	};
 	static struct xc2028_ctrl ctl = {
-		.fname       = XC2028_DEFAULT_FIRMWARE,
+		.fname       = "/*(DEBLOBBED)*/",
 		.max_len     = 64,
 		.demod       = XC3028_FE_ZARLINK456,
 	};
@@ -1660,7 +1660,7 @@ static struct dvb_usb_device_properties cxusb_bluebird_lgh064f_properties = {
 	.caps = DVB_USB_IS_AN_I2C_ADAPTER,
 
 	.usb_ctrl          = DEVICE_SPECIFIC,
-	.firmware          = "dvb-usb-bluebird-01.fw",
+	.firmware          = "/*(DEBLOBBED)*/",
 	.download_firmware = bluebird_patch_dvico_firmware_download,
 	/* use usb alt setting 0 for EP4 transfer (dvb-t),
 	   use usb alt setting 7 for EP2 transfer (atsc) */
@@ -1717,7 +1717,7 @@ static struct dvb_usb_device_properties cxusb_bluebird_dee1601_properties = {
 	.caps = DVB_USB_IS_AN_I2C_ADAPTER,
 
 	.usb_ctrl          = DEVICE_SPECIFIC,
-	.firmware          = "dvb-usb-bluebird-01.fw",
+	.firmware          = "/*(DEBLOBBED)*/",
 	.download_firmware = bluebird_patch_dvico_firmware_download,
 	/* use usb alt setting 0 for EP4 transfer (dvb-t),
 	   use usb alt setting 7 for EP2 transfer (atsc) */
@@ -1781,7 +1781,7 @@ static struct dvb_usb_device_properties cxusb_bluebird_lgz201_properties = {
 	.caps = DVB_USB_IS_AN_I2C_ADAPTER,
 
 	.usb_ctrl          = DEVICE_SPECIFIC,
-	.firmware          = "dvb-usb-bluebird-01.fw",
+	.firmware          = "/*(DEBLOBBED)*/",
 	.download_firmware = bluebird_patch_dvico_firmware_download,
 	/* use usb alt setting 0 for EP4 transfer (dvb-t),
 	   use usb alt setting 7 for EP2 transfer (atsc) */
@@ -1836,7 +1836,7 @@ static struct dvb_usb_device_properties cxusb_bluebird_dtt7579_properties = {
 	.caps = DVB_USB_IS_AN_I2C_ADAPTER,
 
 	.usb_ctrl          = DEVICE_SPECIFIC,
-	.firmware          = "dvb-usb-bluebird-01.fw",
+	.firmware          = "/*(DEBLOBBED)*/",
 	.download_firmware = bluebird_patch_dvico_firmware_download,
 	/* use usb alt setting 0 for EP4 transfer (dvb-t),
 	   use usb alt setting 7 for EP2 transfer (atsc) */
@@ -1997,7 +1997,7 @@ static struct dvb_usb_device_properties cxusb_bluebird_nano2_needsfirmware_prope
 	.caps = DVB_USB_IS_AN_I2C_ADAPTER,
 
 	.usb_ctrl          = DEVICE_SPECIFIC,
-	.firmware          = "dvb-usb-bluebird-02.fw",
+	.firmware          = "/*(DEBLOBBED)*/",
 	.download_firmware = bluebird_patch_dvico_firmware_download,
 	.identify_state    = bluebird_fx2_identify_state,
 

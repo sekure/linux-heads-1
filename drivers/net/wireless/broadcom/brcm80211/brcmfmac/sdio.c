@@ -593,24 +593,24 @@ static const struct sdiod_drive_str sdiod_drvstr_tab2_3v3[] = {
 	{4,  0x1}
 };
 
-BRCMF_FW_NVRAM_DEF(43143, "brcmfmac43143-sdio.bin", "brcmfmac43143-sdio.txt");
-BRCMF_FW_NVRAM_DEF(43241B0, "brcmfmac43241b0-sdio.bin",
+BRCMF_FW_NVRAM_DEF(43143, "/*(DEBLOBBED)*/", "brcmfmac43143-sdio.txt");
+BRCMF_FW_NVRAM_DEF(43241B0, "/*(DEBLOBBED)*/",
 		   "brcmfmac43241b0-sdio.txt");
-BRCMF_FW_NVRAM_DEF(43241B4, "brcmfmac43241b4-sdio.bin",
+BRCMF_FW_NVRAM_DEF(43241B4, "/*(DEBLOBBED)*/",
 		   "brcmfmac43241b4-sdio.txt");
-BRCMF_FW_NVRAM_DEF(43241B5, "brcmfmac43241b5-sdio.bin",
+BRCMF_FW_NVRAM_DEF(43241B5, "/*(DEBLOBBED)*/",
 		   "brcmfmac43241b5-sdio.txt");
-BRCMF_FW_NVRAM_DEF(4329, "brcmfmac4329-sdio.bin", "brcmfmac4329-sdio.txt");
-BRCMF_FW_NVRAM_DEF(4330, "brcmfmac4330-sdio.bin", "brcmfmac4330-sdio.txt");
-BRCMF_FW_NVRAM_DEF(4334, "brcmfmac4334-sdio.bin", "brcmfmac4334-sdio.txt");
-BRCMF_FW_NVRAM_DEF(43340, "brcmfmac43340-sdio.bin", "brcmfmac43340-sdio.txt");
-BRCMF_FW_NVRAM_DEF(4335, "brcmfmac4335-sdio.bin", "brcmfmac4335-sdio.txt");
-BRCMF_FW_NVRAM_DEF(43362, "brcmfmac43362-sdio.bin", "brcmfmac43362-sdio.txt");
-BRCMF_FW_NVRAM_DEF(4339, "brcmfmac4339-sdio.bin", "brcmfmac4339-sdio.txt");
-BRCMF_FW_NVRAM_DEF(43430, "brcmfmac43430-sdio.bin", "brcmfmac43430-sdio.txt");
-BRCMF_FW_NVRAM_DEF(43455, "brcmfmac43455-sdio.bin", "brcmfmac43455-sdio.txt");
-BRCMF_FW_NVRAM_DEF(4354, "brcmfmac4354-sdio.bin", "brcmfmac4354-sdio.txt");
-BRCMF_FW_NVRAM_DEF(4356, "brcmfmac4356-sdio.bin", "brcmfmac4356-sdio.txt");
+BRCMF_FW_NVRAM_DEF(4329, "/*(DEBLOBBED)*/", "brcmfmac4329-sdio.txt");
+BRCMF_FW_NVRAM_DEF(4330, "/*(DEBLOBBED)*/", "brcmfmac4330-sdio.txt");
+BRCMF_FW_NVRAM_DEF(4334, "/*(DEBLOBBED)*/", "brcmfmac4334-sdio.txt");
+BRCMF_FW_NVRAM_DEF(43340, "/*(DEBLOBBED)*/", "brcmfmac43340-sdio.txt");
+BRCMF_FW_NVRAM_DEF(4335, "/*(DEBLOBBED)*/", "brcmfmac4335-sdio.txt");
+BRCMF_FW_NVRAM_DEF(43362, "/*(DEBLOBBED)*/", "brcmfmac43362-sdio.txt");
+BRCMF_FW_NVRAM_DEF(4339, "/*(DEBLOBBED)*/", "brcmfmac4339-sdio.txt");
+BRCMF_FW_NVRAM_DEF(43430, "/*(DEBLOBBED)*/", "brcmfmac43430-sdio.txt");
+BRCMF_FW_NVRAM_DEF(43455, "/*(DEBLOBBED)*/", "brcmfmac43455-sdio.txt");
+BRCMF_FW_NVRAM_DEF(4354, "/*(DEBLOBBED)*/", "brcmfmac4354-sdio.txt");
+BRCMF_FW_NVRAM_DEF(4356, "/*(DEBLOBBED)*/", "brcmfmac4356-sdio.txt");
 
 static struct brcmf_firmware_mapping brcmf_sdio_fwnames[] = {
 	BRCMF_FW_NVRAM_ENTRY(BRCM_CC_43143_CHIP_ID, 0xFFFFFFFF, 43143),

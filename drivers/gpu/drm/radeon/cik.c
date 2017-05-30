@@ -35,88 +35,7 @@
 #include "clearstate_ci.h"
 #include "radeon_kfd.h"
 
-MODULE_FIRMWARE("radeon/BONAIRE_pfp.bin");
-MODULE_FIRMWARE("radeon/BONAIRE_me.bin");
-MODULE_FIRMWARE("radeon/BONAIRE_ce.bin");
-MODULE_FIRMWARE("radeon/BONAIRE_mec.bin");
-MODULE_FIRMWARE("radeon/BONAIRE_mc.bin");
-MODULE_FIRMWARE("radeon/BONAIRE_mc2.bin");
-MODULE_FIRMWARE("radeon/BONAIRE_rlc.bin");
-MODULE_FIRMWARE("radeon/BONAIRE_sdma.bin");
-MODULE_FIRMWARE("radeon/BONAIRE_smc.bin");
-
-MODULE_FIRMWARE("radeon/bonaire_pfp.bin");
-MODULE_FIRMWARE("radeon/bonaire_me.bin");
-MODULE_FIRMWARE("radeon/bonaire_ce.bin");
-MODULE_FIRMWARE("radeon/bonaire_mec.bin");
-MODULE_FIRMWARE("radeon/bonaire_mc.bin");
-MODULE_FIRMWARE("radeon/bonaire_rlc.bin");
-MODULE_FIRMWARE("radeon/bonaire_sdma.bin");
-MODULE_FIRMWARE("radeon/bonaire_smc.bin");
-MODULE_FIRMWARE("radeon/bonaire_k_smc.bin");
-
-MODULE_FIRMWARE("radeon/HAWAII_pfp.bin");
-MODULE_FIRMWARE("radeon/HAWAII_me.bin");
-MODULE_FIRMWARE("radeon/HAWAII_ce.bin");
-MODULE_FIRMWARE("radeon/HAWAII_mec.bin");
-MODULE_FIRMWARE("radeon/HAWAII_mc.bin");
-MODULE_FIRMWARE("radeon/HAWAII_mc2.bin");
-MODULE_FIRMWARE("radeon/HAWAII_rlc.bin");
-MODULE_FIRMWARE("radeon/HAWAII_sdma.bin");
-MODULE_FIRMWARE("radeon/HAWAII_smc.bin");
-
-MODULE_FIRMWARE("radeon/hawaii_pfp.bin");
-MODULE_FIRMWARE("radeon/hawaii_me.bin");
-MODULE_FIRMWARE("radeon/hawaii_ce.bin");
-MODULE_FIRMWARE("radeon/hawaii_mec.bin");
-MODULE_FIRMWARE("radeon/hawaii_mc.bin");
-MODULE_FIRMWARE("radeon/hawaii_rlc.bin");
-MODULE_FIRMWARE("radeon/hawaii_sdma.bin");
-MODULE_FIRMWARE("radeon/hawaii_smc.bin");
-MODULE_FIRMWARE("radeon/hawaii_k_smc.bin");
-
-MODULE_FIRMWARE("radeon/KAVERI_pfp.bin");
-MODULE_FIRMWARE("radeon/KAVERI_me.bin");
-MODULE_FIRMWARE("radeon/KAVERI_ce.bin");
-MODULE_FIRMWARE("radeon/KAVERI_mec.bin");
-MODULE_FIRMWARE("radeon/KAVERI_rlc.bin");
-MODULE_FIRMWARE("radeon/KAVERI_sdma.bin");
-
-MODULE_FIRMWARE("radeon/kaveri_pfp.bin");
-MODULE_FIRMWARE("radeon/kaveri_me.bin");
-MODULE_FIRMWARE("radeon/kaveri_ce.bin");
-MODULE_FIRMWARE("radeon/kaveri_mec.bin");
-MODULE_FIRMWARE("radeon/kaveri_mec2.bin");
-MODULE_FIRMWARE("radeon/kaveri_rlc.bin");
-MODULE_FIRMWARE("radeon/kaveri_sdma.bin");
-
-MODULE_FIRMWARE("radeon/KABINI_pfp.bin");
-MODULE_FIRMWARE("radeon/KABINI_me.bin");
-MODULE_FIRMWARE("radeon/KABINI_ce.bin");
-MODULE_FIRMWARE("radeon/KABINI_mec.bin");
-MODULE_FIRMWARE("radeon/KABINI_rlc.bin");
-MODULE_FIRMWARE("radeon/KABINI_sdma.bin");
-
-MODULE_FIRMWARE("radeon/kabini_pfp.bin");
-MODULE_FIRMWARE("radeon/kabini_me.bin");
-MODULE_FIRMWARE("radeon/kabini_ce.bin");
-MODULE_FIRMWARE("radeon/kabini_mec.bin");
-MODULE_FIRMWARE("radeon/kabini_rlc.bin");
-MODULE_FIRMWARE("radeon/kabini_sdma.bin");
-
-MODULE_FIRMWARE("radeon/MULLINS_pfp.bin");
-MODULE_FIRMWARE("radeon/MULLINS_me.bin");
-MODULE_FIRMWARE("radeon/MULLINS_ce.bin");
-MODULE_FIRMWARE("radeon/MULLINS_mec.bin");
-MODULE_FIRMWARE("radeon/MULLINS_rlc.bin");
-MODULE_FIRMWARE("radeon/MULLINS_sdma.bin");
-
-MODULE_FIRMWARE("radeon/mullins_pfp.bin");
-MODULE_FIRMWARE("radeon/mullins_me.bin");
-MODULE_FIRMWARE("radeon/mullins_ce.bin");
-MODULE_FIRMWARE("radeon/mullins_mec.bin");
-MODULE_FIRMWARE("radeon/mullins_rlc.bin");
-MODULE_FIRMWARE("radeon/mullins_sdma.bin");
+/*(DEBLOBBED)*/
 
 extern int r600_ih_ring_alloc(struct radeon_device *rdev);
 extern void r600_ih_ring_fini(struct radeon_device *rdev);
@@ -2061,11 +1980,11 @@ static int cik_init_microcode(struct radeon_device *rdev)
 
 	DRM_INFO("Loading %s Microcode\n", new_chip_name);
 
-	snprintf(fw_name, sizeof(fw_name), "radeon/%s_pfp.bin", new_chip_name);
-	err = request_firmware(&rdev->pfp_fw, fw_name, rdev->dev);
+	snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", new_chip_name);
+	err = reject_firmware(&rdev->pfp_fw, fw_name, rdev->dev);
 	if (err) {
-		snprintf(fw_name, sizeof(fw_name), "radeon/%s_pfp.bin", chip_name);
-		err = request_firmware(&rdev->pfp_fw, fw_name, rdev->dev);
+		snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
+		err = reject_firmware(&rdev->pfp_fw, fw_name, rdev->dev);
 		if (err)
 			goto out;
 		if (rdev->pfp_fw->size != pfp_req_size) {
@@ -2087,11 +2006,11 @@ static int cik_init_microcode(struct radeon_device *rdev)
 		}
 	}
 
-	snprintf(fw_name, sizeof(fw_name), "radeon/%s_me.bin", new_chip_name);
-	err = request_firmware(&rdev->me_fw, fw_name, rdev->dev);
+	snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", new_chip_name);
+	err = reject_firmware(&rdev->me_fw, fw_name, rdev->dev);
 	if (err) {
-		snprintf(fw_name, sizeof(fw_name), "radeon/%s_me.bin", chip_name);
-		err = request_firmware(&rdev->me_fw, fw_name, rdev->dev);
+		snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
+		err = reject_firmware(&rdev->me_fw, fw_name, rdev->dev);
 		if (err)
 			goto out;
 		if (rdev->me_fw->size != me_req_size) {
@@ -2112,11 +2031,11 @@ static int cik_init_microcode(struct radeon_device *rdev)
 		}
 	}
 
-	snprintf(fw_name, sizeof(fw_name), "radeon/%s_ce.bin", new_chip_name);
-	err = request_firmware(&rdev->ce_fw, fw_name, rdev->dev);
+	snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", new_chip_name);
+	err = reject_firmware(&rdev->ce_fw, fw_name, rdev->dev);
 	if (err) {
-		snprintf(fw_name, sizeof(fw_name), "radeon/%s_ce.bin", chip_name);
-		err = request_firmware(&rdev->ce_fw, fw_name, rdev->dev);
+		snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
+		err = reject_firmware(&rdev->ce_fw, fw_name, rdev->dev);
 		if (err)
 			goto out;
 		if (rdev->ce_fw->size != ce_req_size) {
@@ -2137,11 +2056,11 @@ static int cik_init_microcode(struct radeon_device *rdev)
 		}
 	}
 
-	snprintf(fw_name, sizeof(fw_name), "radeon/%s_mec.bin", new_chip_name);
-	err = request_firmware(&rdev->mec_fw, fw_name, rdev->dev);
+	snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", new_chip_name);
+	err = reject_firmware(&rdev->mec_fw, fw_name, rdev->dev);
 	if (err) {
-		snprintf(fw_name, sizeof(fw_name), "radeon/%s_mec.bin", chip_name);
-		err = request_firmware(&rdev->mec_fw, fw_name, rdev->dev);
+		snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
+		err = reject_firmware(&rdev->mec_fw, fw_name, rdev->dev);
 		if (err)
 			goto out;
 		if (rdev->mec_fw->size != mec_req_size) {
@@ -2163,8 +2082,8 @@ static int cik_init_microcode(struct radeon_device *rdev)
 	}
 
 	if (rdev->family == CHIP_KAVERI) {
-		snprintf(fw_name, sizeof(fw_name), "radeon/%s_mec2.bin", new_chip_name);
-		err = request_firmware(&rdev->mec2_fw, fw_name, rdev->dev);
+		snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", new_chip_name);
+		err = reject_firmware(&rdev->mec2_fw, fw_name, rdev->dev);
 		if (err) {
 			goto out;
 		} else {
@@ -2177,11 +2096,11 @@ static int cik_init_microcode(struct radeon_device *rdev)
 		}
 	}
 
-	snprintf(fw_name, sizeof(fw_name), "radeon/%s_rlc.bin", new_chip_name);
-	err = request_firmware(&rdev->rlc_fw, fw_name, rdev->dev);
+	snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", new_chip_name);
+	err = reject_firmware(&rdev->rlc_fw, fw_name, rdev->dev);
 	if (err) {
-		snprintf(fw_name, sizeof(fw_name), "radeon/%s_rlc.bin", chip_name);
-		err = request_firmware(&rdev->rlc_fw, fw_name, rdev->dev);
+		snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
+		err = reject_firmware(&rdev->rlc_fw, fw_name, rdev->dev);
 		if (err)
 			goto out;
 		if (rdev->rlc_fw->size != rlc_req_size) {
@@ -2202,11 +2121,11 @@ static int cik_init_microcode(struct radeon_device *rdev)
 		}
 	}
 
-	snprintf(fw_name, sizeof(fw_name), "radeon/%s_sdma.bin", new_chip_name);
-	err = request_firmware(&rdev->sdma_fw, fw_name, rdev->dev);
+	snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", new_chip_name);
+	err = reject_firmware(&rdev->sdma_fw, fw_name, rdev->dev);
 	if (err) {
-		snprintf(fw_name, sizeof(fw_name), "radeon/%s_sdma.bin", chip_name);
-		err = request_firmware(&rdev->sdma_fw, fw_name, rdev->dev);
+		snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
+		err = reject_firmware(&rdev->sdma_fw, fw_name, rdev->dev);
 		if (err)
 			goto out;
 		if (rdev->sdma_fw->size != sdma_req_size) {
@@ -2229,14 +2148,14 @@ static int cik_init_microcode(struct radeon_device *rdev)
 
 	/* No SMC, MC ucode on APUs */
 	if (!(rdev->flags & RADEON_IS_IGP)) {
-		snprintf(fw_name, sizeof(fw_name), "radeon/%s_mc.bin", new_chip_name);
-		err = request_firmware(&rdev->mc_fw, fw_name, rdev->dev);
+		snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", new_chip_name);
+		err = reject_firmware(&rdev->mc_fw, fw_name, rdev->dev);
 		if (err) {
-			snprintf(fw_name, sizeof(fw_name), "radeon/%s_mc2.bin", chip_name);
-			err = request_firmware(&rdev->mc_fw, fw_name, rdev->dev);
+			snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
+			err = reject_firmware(&rdev->mc_fw, fw_name, rdev->dev);
 			if (err) {
-				snprintf(fw_name, sizeof(fw_name), "radeon/%s_mc.bin", chip_name);
-				err = request_firmware(&rdev->mc_fw, fw_name, rdev->dev);
+				snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
+				err = reject_firmware(&rdev->mc_fw, fw_name, rdev->dev);
 				if (err)
 					goto out;
 			}
@@ -2261,13 +2180,13 @@ static int cik_init_microcode(struct radeon_device *rdev)
 		}
 
 		if (new_smc)
-			snprintf(fw_name, sizeof(fw_name), "radeon/%s_k_smc.bin", new_chip_name);
+			snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", new_chip_name);
 		else
-			snprintf(fw_name, sizeof(fw_name), "radeon/%s_smc.bin", new_chip_name);
-		err = request_firmware(&rdev->smc_fw, fw_name, rdev->dev);
+			snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", new_chip_name);
+		err = reject_firmware(&rdev->smc_fw, fw_name, rdev->dev);
 		if (err) {
-			snprintf(fw_name, sizeof(fw_name), "radeon/%s_smc.bin", chip_name);
-			err = request_firmware(&rdev->smc_fw, fw_name, rdev->dev);
+			snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
+			err = reject_firmware(&rdev->smc_fw, fw_name, rdev->dev);
 			if (err) {
 				printk(KERN_ERR
 				       "smc: error loading firmware \"%s\"\n",

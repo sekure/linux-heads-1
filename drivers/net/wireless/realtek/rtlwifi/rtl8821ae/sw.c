@@ -204,17 +204,17 @@ int rtl8821ae_init_sw_vars(struct ieee80211_hw *hw)
 	}
 
 	if (rtlhal->hw_type == HARDWARE_TYPE_RTL8812AE) {
-		fw_name = "rtlwifi/rtl8812aefw.bin";
-		wowlan_fw_name = "rtlwifi/rtl8812aefw_wowlan.bin";
+		fw_name = "/*(DEBLOBBED)*/";
+		wowlan_fw_name = "/*(DEBLOBBED)*/";
 	} else {
-		fw_name = "rtlwifi/rtl8821aefw.bin";
-		wowlan_fw_name = "rtlwifi/rtl8821aefw_wowlan.bin";
+		fw_name = "/*(DEBLOBBED)*/";
+		wowlan_fw_name = "/*(DEBLOBBED)*/";
 	}
 
 	rtlpriv->max_fw_size = 0x8000;
 	/*load normal firmware*/
 	pr_info("Using firmware %s\n", fw_name);
-	err = request_firmware_nowait(THIS_MODULE, 1, fw_name,
+	err = reject_firmware_nowait(THIS_MODULE, 1, fw_name,
 				      rtlpriv->io.dev, GFP_KERNEL, hw,
 				      rtl_fw_cb);
 	if (err) {
@@ -224,7 +224,7 @@ int rtl8821ae_init_sw_vars(struct ieee80211_hw *hw)
 	}
 	/*load wowlan firmware*/
 	pr_info("Using firmware %s\n", wowlan_fw_name);
-	err = request_firmware_nowait(THIS_MODULE, 1,
+	err = reject_firmware_nowait(THIS_MODULE, 1,
 				      wowlan_fw_name,
 				      rtlpriv->io.dev, GFP_KERNEL, hw,
 				      rtl_wowlan_fw_cb);
@@ -431,7 +431,7 @@ MODULE_DEVICE_TABLE(pci, rtl8821ae_pci_ids);
 MODULE_AUTHOR("Realtek WlanFAE	<wlanfae@realtek.com>");
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("Realtek 8821ae 802.11ac PCI wireless");
-MODULE_FIRMWARE("rtlwifi/rtl8821aefw.bin");
+/*(DEBLOBBED)*/
 
 module_param_named(swenc, rtl8821ae_mod_params.sw_crypto, bool, 0444);
 module_param_named(debug, rtl8821ae_mod_params.debug, int, 0444);

@@ -18,7 +18,7 @@
 #include "gp8psk-fe.h"
 
 /* debug */
-static char bcm4500_firmware[] = "dvb-usb-gp8psk-02.fw";
+static char bcm4500_firmware[] = "/*(DEBLOBBED)*/";
 int dvb_usb_gp8psk_debug;
 module_param_named(debug,dvb_usb_gp8psk_debug, int, 0644);
 MODULE_PARM_DESC(debug, "set debugging level (1=info,xfer=2,rc=4 (or-able))." DVB_USB_DEBUG_STATUS);
@@ -133,7 +133,7 @@ static int gp8psk_load_bcm4500fw(struct dvb_usb_device *d)
 	const struct firmware *fw = NULL;
 	const u8 *ptr;
 	u8 *buf;
-	if ((ret = request_firmware(&fw, bcm4500_firmware,
+	if ((ret = reject_firmware(&fw, bcm4500_firmware,
 					&d->udev->dev)) != 0) {
 		err("did not find the bcm4500 firmware file. (%s) "
 			"Please see linux/Documentation/dvb/ for more details on firmware-problems. (%d)",
@@ -327,7 +327,7 @@ MODULE_DEVICE_TABLE(usb, gp8psk_usb_table);
 
 static struct dvb_usb_device_properties gp8psk_properties = {
 	.usb_ctrl = CYPRESS_FX2,
-	.firmware = "dvb-usb-gp8psk-01.fw",
+	.firmware = "/*(DEBLOBBED)*/",
 
 	.size_of_priv = sizeof(struct gp8psk_state),
 

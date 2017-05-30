@@ -24,8 +24,7 @@
 *   Gen2.
 * - The V1 firmware is impossible to use on R-Car Gen3.
 */
-MODULE_FIRMWARE(XHCI_RCAR_FIRMWARE_NAME_V1);
-MODULE_FIRMWARE(XHCI_RCAR_FIRMWARE_NAME_V2);
+/*(DEBLOBBED)*/
 
 /*** Register Offset ***/
 #define RCAR_USB3_INT_ENA	0x224	/* Interrupt Enable */
@@ -120,7 +119,7 @@ static int xhci_rcar_download_firmware(struct usb_hcd *hcd)
 	u32 data, val, temp;
 
 	/* request R-Car USB3.0 firmware */
-	retval = request_firmware(&fw, priv->firmware_name, dev);
+	retval = reject_firmware(&fw, priv->firmware_name, dev);
 	if (retval)
 		return retval;
 

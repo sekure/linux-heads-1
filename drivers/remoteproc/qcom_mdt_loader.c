@@ -154,7 +154,7 @@ int qcom_mdt_load(struct rproc *rproc,
 
 		if (phdr->p_filesz) {
 			sprintf(fw_name + fw_name_len - 3, "b%02d", i);
-			ret = request_firmware(&seg_fw, fw_name, &rproc->dev);
+			ret = reject_firmware(&seg_fw, fw_name, &rproc->dev);
 			if (ret) {
 				dev_err(&rproc->dev, "failed to load %s\n",
 					fw_name);

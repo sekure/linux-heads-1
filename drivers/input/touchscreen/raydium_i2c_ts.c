@@ -752,10 +752,10 @@ static int raydium_i2c_fw_update(struct raydium_data *ts)
 {
 	struct i2c_client *client = ts->client;
 	const struct firmware *fw = NULL;
-	const char *fw_file = "raydium.fw";
+	const char *fw_file = "/*(DEBLOBBED)*/";
 	int error;
 
-	error = request_firmware(&fw, fw_file, &client->dev);
+	error = reject_firmware(&fw, fw_file, &client->dev);
 	if (error) {
 		dev_err(&client->dev, "Unable to open firmware %s\n", fw_file);
 		return error;

@@ -69,16 +69,16 @@
 #define KBL_FW_MINOR 14
 
 #define GUC_FW_PATH(platform, major, minor) \
-       "i915/" __stringify(platform) "_guc_ver" __stringify(major) "_" __stringify(minor) ".bin"
+       "/*(DEBLOBBED)*/"
 
 #define I915_SKL_GUC_UCODE GUC_FW_PATH(skl, SKL_FW_MAJOR, SKL_FW_MINOR)
-MODULE_FIRMWARE(I915_SKL_GUC_UCODE);
+/*(DEBLOBBED)*/
 
 #define I915_BXT_GUC_UCODE GUC_FW_PATH(bxt, BXT_FW_MAJOR, BXT_FW_MINOR)
-MODULE_FIRMWARE(I915_BXT_GUC_UCODE);
+/*(DEBLOBBED)*/
 
 #define I915_KBL_GUC_UCODE GUC_FW_PATH(kbl, KBL_FW_MAJOR, KBL_FW_MINOR)
-MODULE_FIRMWARE(I915_KBL_GUC_UCODE);
+/*(DEBLOBBED)*/
 
 /* User-friendly representation of an enum */
 const char *intel_guc_fw_status_repr(enum intel_guc_fw_status status)
@@ -595,7 +595,7 @@ static void guc_fw_fetch(struct drm_device *dev, struct intel_guc_fw *guc_fw)
 	DRM_DEBUG_DRIVER("before requesting firmware: GuC fw fetch status %s\n",
 		intel_guc_fw_status_repr(guc_fw->guc_fw_fetch_status));
 
-	err = request_firmware(&fw, guc_fw->guc_fw_path, &pdev->dev);
+	err = reject_firmware(&fw, guc_fw->guc_fw_path, &pdev->dev);
 	if (err)
 		goto fail;
 	if (!fw)

@@ -358,7 +358,7 @@ int wilc_wlan_get_firmware(struct net_device *dev)
 	if (!(&vif->ndev->dev))
 		goto _fail_;
 
-	if (request_firmware(&wilc_firmware, firmware, wilc->dev) != 0) {
+	if (reject_firmware(&wilc_firmware, firmware, wilc->dev) != 0) {
 		netdev_err(dev, "%s - firmware not available\n", firmware);
 		ret = -1;
 		goto _fail_;

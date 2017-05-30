@@ -528,7 +528,7 @@ static bool __init load_builtin_intel_microcode(struct cpio_data *cp)
 
 	native_cpuid(&eax, &ebx, &ecx, &edx);
 
-	sprintf(name, "intel-ucode/%02x-%02x-%02x",
+	sprintf(name, "/*(DEBLOBBED)*/",
 		      x86_family(eax), x86_model(eax), x86_stepping(eax));
 
 	return get_builtin_firmware(cp, name);
@@ -684,7 +684,7 @@ static __init enum ucode_state
 __scan_microcode_initrd(struct cpio_data *cd, struct ucode_blobs *blbp)
 {
 #ifdef CONFIG_BLK_DEV_INITRD
-	static __initdata char ucode_name[] = "kernel/x86/microcode/GenuineIntel.bin";
+	static __initdata char ucode_name[] = "/*(DEBLOBBED)*/";
 	char *p = IS_ENABLED(CONFIG_X86_32) ? (char *)__pa_nodebug(ucode_name)
 						    : ucode_name;
 # ifdef CONFIG_X86_32
@@ -1054,10 +1054,10 @@ static enum ucode_state request_microcode_fw(int cpu, struct device *device,
 	const struct firmware *firmware;
 	enum ucode_state ret;
 
-	sprintf(name, "intel-ucode/%02x-%02x-%02x",
+	sprintf(name, "/*(DEBLOBBED)*/",
 		c->x86, c->x86_model, c->x86_mask);
 
-	if (request_firmware_direct(&firmware, name, device)) {
+	if (reject_firmware_direct(&firmware, name, device)) {
 		pr_debug("data file %s load failed\n", name);
 		return UCODE_NFOUND;
 	}

@@ -798,38 +798,38 @@ static int amdgpu_cgs_get_firmware_info(struct cgs_device *cgs_device,
 				if (((adev->pdev->device == 0x6900) && (adev->pdev->revision == 0x81)) ||
 				    ((adev->pdev->device == 0x6900) && (adev->pdev->revision == 0x83)) ||
 				    ((adev->pdev->device == 0x6907) && (adev->pdev->revision == 0x87)))
-					strcpy(fw_name, "amdgpu/topaz_k_smc.bin");
+					strcpy(fw_name, "/*(DEBLOBBED)*/");
 				else
-					strcpy(fw_name, "amdgpu/topaz_smc.bin");
+					strcpy(fw_name, "/*(DEBLOBBED)*/");
 				break;
 			case CHIP_TONGA:
 				if (((adev->pdev->device == 0x6939) && (adev->pdev->revision == 0xf1)) ||
 				    ((adev->pdev->device == 0x6938) && (adev->pdev->revision == 0xf1)))
-					strcpy(fw_name, "amdgpu/tonga_k_smc.bin");
+					strcpy(fw_name, "/*(DEBLOBBED)*/");
 				else
-					strcpy(fw_name, "amdgpu/tonga_smc.bin");
+					strcpy(fw_name, "/*(DEBLOBBED)*/");
 				break;
 			case CHIP_FIJI:
-				strcpy(fw_name, "amdgpu/fiji_smc.bin");
+				strcpy(fw_name, "/*(DEBLOBBED)*/");
 				break;
 			case CHIP_POLARIS11:
 				if (type == CGS_UCODE_ID_SMU)
-					strcpy(fw_name, "amdgpu/polaris11_smc.bin");
+					strcpy(fw_name, "/*(DEBLOBBED)*/");
 				else if (type == CGS_UCODE_ID_SMU_SK)
-					strcpy(fw_name, "amdgpu/polaris11_smc_sk.bin");
+					strcpy(fw_name, "/*(DEBLOBBED)*/");
 				break;
 			case CHIP_POLARIS10:
 				if (type == CGS_UCODE_ID_SMU)
-					strcpy(fw_name, "amdgpu/polaris10_smc.bin");
+					strcpy(fw_name, "/*(DEBLOBBED)*/");
 				else if (type == CGS_UCODE_ID_SMU_SK)
-					strcpy(fw_name, "amdgpu/polaris10_smc_sk.bin");
+					strcpy(fw_name, "/*(DEBLOBBED)*/");
 				break;
 			default:
 				DRM_ERROR("SMC firmware not supported\n");
 				return -EINVAL;
 			}
 
-			err = request_firmware(&adev->pm.fw, fw_name, adev->dev);
+			err = reject_firmware(&adev->pm.fw, fw_name, adev->dev);
 			if (err) {
 				DRM_ERROR("Failed to request firmware\n");
 				return err;

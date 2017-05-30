@@ -55,15 +55,7 @@
 
 #define BIOS_SCRATCH_4                                    0x5cd
 
-MODULE_FIRMWARE("radeon/tahiti_smc.bin");
-MODULE_FIRMWARE("radeon/pitcairn_smc.bin");
-MODULE_FIRMWARE("radeon/pitcairn_k_smc.bin");
-MODULE_FIRMWARE("radeon/verde_smc.bin");
-MODULE_FIRMWARE("radeon/verde_k_smc.bin");
-MODULE_FIRMWARE("radeon/oland_smc.bin");
-MODULE_FIRMWARE("radeon/oland_k_smc.bin");
-MODULE_FIRMWARE("radeon/hainan_smc.bin");
-MODULE_FIRMWARE("radeon/hainan_k_smc.bin");
+/*(DEBLOBBED)*/
 
 union power_info {
 	struct _ATOM_POWERPLAY_INFO info;
@@ -7731,8 +7723,8 @@ static int si_dpm_init_microcode(struct amdgpu_device *adev)
 	default: BUG();
 	}
 
-	snprintf(fw_name, sizeof(fw_name), "radeon/%s_smc.bin", chip_name);
-	err = request_firmware(&adev->pm.fw, fw_name, adev->dev);
+	snprintf(fw_name, sizeof(fw_name), "/*(DEBLOBBED)*/", chip_name);
+	err = reject_firmware(&adev->pm.fw, fw_name, adev->dev);
 	if (err)
 		goto out;
 	err = amdgpu_ucode_validate(adev->pm.fw);

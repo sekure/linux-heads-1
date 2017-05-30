@@ -219,15 +219,4 @@ gm20b_secboot_new(struct nvkm_device *device, int index,
 	return 0;
 }
 
-MODULE_FIRMWARE("nvidia/gm20b/acr/bl.bin");
-MODULE_FIRMWARE("nvidia/gm20b/acr/ucode_load.bin");
-MODULE_FIRMWARE("nvidia/gm20b/gr/fecs_bl.bin");
-MODULE_FIRMWARE("nvidia/gm20b/gr/fecs_inst.bin");
-MODULE_FIRMWARE("nvidia/gm20b/gr/fecs_data.bin");
-MODULE_FIRMWARE("nvidia/gm20b/gr/fecs_sig.bin");
-MODULE_FIRMWARE("nvidia/gm20b/gr/gpccs_inst.bin");
-MODULE_FIRMWARE("nvidia/gm20b/gr/gpccs_data.bin");
-MODULE_FIRMWARE("nvidia/gm20b/gr/sw_ctx.bin");
-MODULE_FIRMWARE("nvidia/gm20b/gr/sw_nonctx.bin");
-MODULE_FIRMWARE("nvidia/gm20b/gr/sw_bundle_init.bin");
-MODULE_FIRMWARE("nvidia/gm20b/gr/sw_method_init.bin");
+/*(DEBLOBBED)*/

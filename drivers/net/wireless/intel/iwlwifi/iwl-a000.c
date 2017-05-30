@@ -72,9 +72,9 @@
 #define IWL_A000_SMEM_OFFSET		0x400000
 #define IWL_A000_SMEM_LEN		0x68000
 
-#define IWL_A000_FW_PRE "iwlwifi-Qu-a0-jf-b0-"
+#define IWL_A000_FW_PRE "/*(DEBLOBBED)*/"
 #define IWL_A000_MODULE_FIRMWARE(api) \
-	IWL_A000_FW_PRE "-" __stringify(api) ".ucode"
+	IWL_A000_FW_PRE /*(DEBLOBBED)*/
 
 #define NVM_HW_SECTION_NUM_FAMILY_A000		10
 
@@ -128,4 +128,4 @@ const struct iwl_cfg iwla000_2ac_cfg = {
 		.max_ht_ampdu_exponent = IEEE80211_HT_MAX_AMPDU_64K,
 };
 
-MODULE_FIRMWARE(IWL_A000_MODULE_FIRMWARE(IWL_A000_UCODE_API_MAX));
+/*(DEBLOBBED)*/

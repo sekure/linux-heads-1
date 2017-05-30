@@ -36,8 +36,8 @@
 
 #include <linux/qcom_scm.h>
 
-#define MBA_FIRMWARE_NAME		"mba.b00"
-#define MPSS_FIRMWARE_NAME		"modem.mdt"
+#define MBA_FIRMWARE_NAME		"/*(DEBLOBBED)*/"
+#define MPSS_FIRMWARE_NAME		"/*(DEBLOBBED)*/"
 
 #define MPSS_CRASH_REASON_SMEM		421
 
@@ -439,7 +439,7 @@ static int q6v5_mpss_load(struct q6v5 *qproc)
 	bool relocate;
 	int ret;
 
-	ret = request_firmware(&fw, MPSS_FIRMWARE_NAME, qproc->dev);
+	ret = reject_firmware(&fw, MPSS_FIRMWARE_NAME, qproc->dev);
 	if (ret < 0) {
 		dev_err(qproc->dev, "unable to load " MPSS_FIRMWARE_NAME "\n");
 		return ret;

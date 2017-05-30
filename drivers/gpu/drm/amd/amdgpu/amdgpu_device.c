@@ -666,7 +666,7 @@ static bool amdgpu_vpost_needed(struct amdgpu_device *adev)
 		if (adev->asic_type == CHIP_FIJI) {
 			int err;
 			uint32_t fw_ver;
-			err = request_firmware(&adev->pm.fw, "amdgpu/fiji_smc.bin", adev->dev);
+			err = reject_firmware(&adev->pm.fw, "/*(DEBLOBBED)*/", adev->dev);
 			/* force vPost if error occured */
 			if (err)
 				return true;

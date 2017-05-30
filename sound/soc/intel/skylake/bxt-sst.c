@@ -59,7 +59,7 @@ bxt_load_library(struct sst_dsp *ctx, struct skl_dfw_manifest *minfo)
 
 	/* library indices start from 1 to N. 0 represents base FW */
 	for (i = 1; i < minfo->lib_count; i++) {
-		ret = request_firmware(&fw, minfo->lib[i].name, ctx->dev);
+		ret = reject_firmware(&fw, minfo->lib[i].name, ctx->dev);
 		if (ret < 0) {
 			dev_err(ctx->dev, "Request lib %s failed:%d\n",
 					minfo->lib[i].name, ret);
@@ -226,7 +226,7 @@ static int bxt_load_base_firmware(struct sst_dsp *ctx)
 	struct skl_sst *skl = ctx->thread_context;
 	int ret;
 
-	ret = request_firmware(&ctx->fw, ctx->fw_name, ctx->dev);
+	ret = reject_firmware(&ctx->fw, ctx->fw_name, ctx->dev);
 	if (ret < 0) {
 		dev_err(ctx->dev, "Request firmware failed %d\n", ret);
 		goto sst_load_base_firmware_failed;

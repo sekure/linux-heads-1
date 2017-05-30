@@ -142,6 +142,6 @@ struct rx_device {
 	unsigned int qtail;	/* rx buffer queue last pointer */
 	spinlock_t rx_dev_lock;
 };
-#define	ROM_FILE "ks7010sd.rom"
+#define	ROM_FILE "/*(DEBLOBBED)*/"
 
 #endif /* _KS7010_SDIO_H */

@@ -219,17 +219,17 @@ static struct wl1271_if_operations sdio_ops = {
 
 static const struct wilink_family_data wl127x_data = {
 	.name = "wl127x",
-	.nvs_name = "ti-connectivity/wl127x-nvs.bin",
+	.nvs_name = "/*(DEBLOBBED)*/",
 };
 
 static const struct wilink_family_data wl128x_data = {
 	.name = "wl128x",
-	.nvs_name = "ti-connectivity/wl128x-nvs.bin",
+	.nvs_name = "/*(DEBLOBBED)*/",
 };
 
 static const struct wilink_family_data wl18xx_data = {
 	.name = "wl18xx",
-	.cfg_name = "ti-connectivity/wl18xx-conf.bin",
+	.cfg_name = "/*(DEBLOBBED)*/",
 };
 
 static const struct of_device_id wlcore_sdio_of_match_table[] = {

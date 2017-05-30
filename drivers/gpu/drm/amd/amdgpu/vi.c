@@ -79,15 +79,7 @@
 #endif
 #include "dce_virtual.h"
 
-MODULE_FIRMWARE("amdgpu/topaz_smc.bin");
-MODULE_FIRMWARE("amdgpu/topaz_k_smc.bin");
-MODULE_FIRMWARE("amdgpu/tonga_smc.bin");
-MODULE_FIRMWARE("amdgpu/tonga_k_smc.bin");
-MODULE_FIRMWARE("amdgpu/fiji_smc.bin");
-MODULE_FIRMWARE("amdgpu/polaris10_smc.bin");
-MODULE_FIRMWARE("amdgpu/polaris10_smc_sk.bin");
-MODULE_FIRMWARE("amdgpu/polaris11_smc.bin");
-MODULE_FIRMWARE("amdgpu/polaris11_smc_sk.bin");
+/*(DEBLOBBED)*/
 
 /*
  * Indirect registers accessor

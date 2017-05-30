@@ -72,15 +72,15 @@
 #define IWL9000_SMEM_OFFSET		0x400000
 #define IWL9000_SMEM_LEN		0x68000
 
-#define  IWL9000_FW_PRE "iwlwifi-9000-pu-a0-jf-a0-"
-#define  IWL9260_FW_PRE "iwlwifi-9260-th-a0-jf-a0-"
-#define  IWL9000LC_FW_PRE "iwlwifi-9000-pu-a0-lc-a0-"
+#define  IWL9000_FW_PRE "/*(DEBLOBBED)*/"
+#define  IWL9260_FW_PRE "/*(DEBLOBBED)*/"
+#define  IWL9000LC_FW_PRE "/*(DEBLOBBED)*/"
 #define IWL9000_MODULE_FIRMWARE(api) \
-	IWL9000_FW_PRE "-" __stringify(api) ".ucode"
+	IWL9000_FW_PRE /*(DEBLOBBED)*/
 #define IWL9260_MODULE_FIRMWARE(api) \
-	IWL9260_FW_PRE "-" __stringify(api) ".ucode"
+	IWL9260_FW_PRE /*(DEBLOBBED)*/
 #define IWL9000LC_MODULE_FIRMWARE(api) \
-	IWL9000LC_FW_PRE "-" __stringify(api) ".ucode"
+	IWL9000LC_FW_PRE /*(DEBLOBBED)*/
 
 #define NVM_HW_SECTION_NUM_FAMILY_9000		10
 
@@ -213,6 +213,4 @@ const struct iwl_cfg iwl9000lc_2ac_cfg = {
 	.integrated = true,
 };
 
-MODULE_FIRMWARE(IWL9000_MODULE_FIRMWARE(IWL9000_UCODE_API_MAX));
-MODULE_FIRMWARE(IWL9260_MODULE_FIRMWARE(IWL9000_UCODE_API_MAX));
-MODULE_FIRMWARE(IWL9000LC_MODULE_FIRMWARE(IWL9000_UCODE_API_MAX));
+/*(DEBLOBBED)*/

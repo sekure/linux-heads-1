@@ -773,7 +773,7 @@ static int ks7010_upload_firmware(struct ks_wlan_private *priv,
 		goto error_out0;
 	}
 
-	retval = request_firmware(&fw_entry, ROM_FILE, &priv->ks_wlan_hw.sdio_card->func->dev);
+	retval = reject_firmware(&fw_entry, ROM_FILE, &priv->ks_wlan_hw.sdio_card->func->dev);
 	if (retval)
 		goto error_out0;
 
@@ -1205,4 +1205,4 @@ module_driver(ks7010_sdio_driver, sdio_register_driver, sdio_unregister_driver);
 MODULE_AUTHOR("Sang Engineering, Qi-Hardware, KeyStream");
 MODULE_DESCRIPTION("Driver for KeyStream KS7010 based SDIO cards");
 MODULE_LICENSE("GPL v2");
-MODULE_FIRMWARE(ROM_FILE);
+/*(DEBLOBBED)*/

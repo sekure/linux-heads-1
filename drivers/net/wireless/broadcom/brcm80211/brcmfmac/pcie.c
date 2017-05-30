@@ -46,18 +46,18 @@ enum brcmf_pcie_state {
 	BRCMFMAC_PCIE_STATE_UP
 };
 
-BRCMF_FW_NVRAM_DEF(43602, "brcmfmac43602-pcie.bin", "brcmfmac43602-pcie.txt");
-BRCMF_FW_NVRAM_DEF(4350, "brcmfmac4350-pcie.bin", "brcmfmac4350-pcie.txt");
-BRCMF_FW_NVRAM_DEF(4350C, "brcmfmac4350c2-pcie.bin", "brcmfmac4350c2-pcie.txt");
-BRCMF_FW_NVRAM_DEF(4356, "brcmfmac4356-pcie.bin", "brcmfmac4356-pcie.txt");
-BRCMF_FW_NVRAM_DEF(43570, "brcmfmac43570-pcie.bin", "brcmfmac43570-pcie.txt");
-BRCMF_FW_NVRAM_DEF(4358, "brcmfmac4358-pcie.bin", "brcmfmac4358-pcie.txt");
-BRCMF_FW_NVRAM_DEF(4359, "brcmfmac4359-pcie.bin", "brcmfmac4359-pcie.txt");
-BRCMF_FW_NVRAM_DEF(4365B, "brcmfmac4365b-pcie.bin", "brcmfmac4365b-pcie.txt");
-BRCMF_FW_NVRAM_DEF(4365C, "brcmfmac4365c-pcie.bin", "brcmfmac4365c-pcie.txt");
-BRCMF_FW_NVRAM_DEF(4366B, "brcmfmac4366b-pcie.bin", "brcmfmac4366b-pcie.txt");
-BRCMF_FW_NVRAM_DEF(4366C, "brcmfmac4366c-pcie.bin", "brcmfmac4366c-pcie.txt");
-BRCMF_FW_NVRAM_DEF(4371, "brcmfmac4371-pcie.bin", "brcmfmac4371-pcie.txt");
+BRCMF_FW_NVRAM_DEF(43602, "/*(DEBLOBBED)*/", "brcmfmac43602-pcie.txt");
+BRCMF_FW_NVRAM_DEF(4350, "/*(DEBLOBBED)*/", "brcmfmac4350-pcie.txt");
+BRCMF_FW_NVRAM_DEF(4350C, "/*(DEBLOBBED)*/", "brcmfmac4350c2-pcie.txt");
+BRCMF_FW_NVRAM_DEF(4356, "/*(DEBLOBBED)*/", "brcmfmac4356-pcie.txt");
+BRCMF_FW_NVRAM_DEF(43570, "/*(DEBLOBBED)*/", "brcmfmac43570-pcie.txt");
+BRCMF_FW_NVRAM_DEF(4358, "/*(DEBLOBBED)*/", "brcmfmac4358-pcie.txt");
+BRCMF_FW_NVRAM_DEF(4359, "/*(DEBLOBBED)*/", "brcmfmac4359-pcie.txt");
+BRCMF_FW_NVRAM_DEF(4365B, "/*(DEBLOBBED)*/", "brcmfmac4365b-pcie.txt");
+BRCMF_FW_NVRAM_DEF(4365C, "/*(DEBLOBBED)*/", "brcmfmac4365c-pcie.txt");
+BRCMF_FW_NVRAM_DEF(4366B, "/*(DEBLOBBED)*/", "brcmfmac4366b-pcie.txt");
+BRCMF_FW_NVRAM_DEF(4366C, "/*(DEBLOBBED)*/", "brcmfmac4366c-pcie.txt");
+BRCMF_FW_NVRAM_DEF(4371, "/*(DEBLOBBED)*/", "brcmfmac4371-pcie.txt");
 
 static struct brcmf_firmware_mapping brcmf_pcie_fwnames[] = {
 	BRCMF_FW_NVRAM_ENTRY(BRCM_CC_43602_CHIP_ID, 0xFFFFFFFF, 43602),

@@ -150,14 +150,14 @@ static int ath10k_tm_fetch_utf_firmware_api_1(struct ath10k *ar,
 		 ar->hw_params.fw.dir, ATH10K_FW_UTF_FILE);
 
 	/* load utf firmware image */
-	ret = request_firmware(&fw_file->firmware, filename, ar->dev);
+	ret = reject_firmware(&fw_file->firmware, filename, ar->dev);
 	if (ret) {
 		ath10k_warn(ar, "failed to retrieve utf firmware '%s': %d\n",
 			    filename, ret);
 		return ret;
 	}
 
-	/* We didn't find FW UTF API 1 ("utf.bin") does not advertise
+	/* We didn't find FW UTF API 1 *//*(DEBLOBBED)*//* does not advertise
 	 * firmware features. Do an ugly hack where we force the firmware
 	 * features to match with 10.1 branch so that wmi.c will use the
 	 * correct WMI interface.
@@ -201,7 +201,7 @@ out:
 	utf_mode_fw->board_len = ar->normal_mode_fw.board_len;
 
 	if (!utf_mode_fw->fw_file.otp_data) {
-		ath10k_info(ar, "utf.bin didn't contain otp binary, taking it from the normal mode firmware");
+		ath10k_info(ar, "/*(DEBLOBBED)*/ didn't contain otp binary, taking it from the normal mode firmware");
 		utf_mode_fw->fw_file.otp_data = ar->normal_mode_fw.fw_file.otp_data;
 		utf_mode_fw->fw_file.otp_len = ar->normal_mode_fw.fw_file.otp_len;
 	}

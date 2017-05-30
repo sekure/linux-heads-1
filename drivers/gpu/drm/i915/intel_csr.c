@@ -34,19 +34,19 @@
  * low-power state and comes back to normal.
  */
 
-#define I915_CSR_KBL "i915/kbl_dmc_ver1_01.bin"
-MODULE_FIRMWARE(I915_CSR_KBL);
+#define I915_CSR_KBL "/*(DEBLOBBED)*/"
+/*(DEBLOBBED)*/
 #define KBL_CSR_VERSION_REQUIRED	CSR_VERSION(1, 1)
 
-#define I915_CSR_SKL "i915/skl_dmc_ver1_26.bin"
-MODULE_FIRMWARE(I915_CSR_SKL);
+#define I915_CSR_SKL "/*(DEBLOBBED)*/"
+/*(DEBLOBBED)*/
 #define SKL_CSR_VERSION_REQUIRED	CSR_VERSION(1, 26)
 
-#define I915_CSR_BXT "i915/bxt_dmc_ver1_07.bin"
-MODULE_FIRMWARE(I915_CSR_BXT);
+#define I915_CSR_BXT "/*(DEBLOBBED)*/"
+/*(DEBLOBBED)*/
 #define BXT_CSR_VERSION_REQUIRED	CSR_VERSION(1, 7)
 
-#define FIRMWARE_URL  "https://01.org/linuxgraphics/intel-linux-graphics-firmwares"
+#define FIRMWARE_URL  "/*(DEBLOBBED)*/"
 
 
 
@@ -404,7 +404,7 @@ static void csr_load_work_fn(struct work_struct *work)
 	dev_priv = container_of(work, typeof(*dev_priv), csr.work);
 	csr = &dev_priv->csr;
 
-	ret = request_firmware(&fw, dev_priv->csr.fw_path,
+	ret = reject_firmware(&fw, dev_priv->csr.fw_path,
 			       &dev_priv->drm.pdev->dev);
 	if (fw)
 		dev_priv->csr.dmc_payload = parse_csr_fw(dev_priv, fw);

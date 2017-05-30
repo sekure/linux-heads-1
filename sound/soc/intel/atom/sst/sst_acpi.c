@@ -439,11 +439,11 @@ static const struct dmi_system_id cht_table[] = {
 
 
 static struct sst_acpi_mach cht_surface_mach = {
-	"10EC5640", "cht-bsw-rt5645", "intel/fw_sst_22a8.bin", "cht-bsw", NULL,
+	"10EC5640", "cht-bsw-rt5645", "/*(DEBLOBBED)*/", "cht-bsw", NULL,
 								&chv_platform_data };
 
 static struct sst_acpi_mach byt_thinkpad_10 = {
-	"10EC5640", "cht-bsw-rt5672", "intel/fw_sst_0f28.bin", "cht-bsw", NULL,
+	"10EC5640", "cht-bsw-rt5672", "/*(DEBLOBBED)*/", "cht-bsw", NULL,
 	                                                        &byt_rvp_platform_data };
 
 static struct sst_acpi_mach *cht_quirk(void *arg)
@@ -472,29 +472,29 @@ static struct sst_acpi_mach *byt_quirk(void *arg)
 
 
 static struct sst_acpi_mach sst_acpi_bytcr[] = {
-	{"10EC5640", "bytcr_rt5640", "intel/fw_sst_0f28.bin", "bytcr_rt5640", byt_quirk,
+	{"10EC5640", "bytcr_rt5640", "/*(DEBLOBBED)*/", "bytcr_rt5640", byt_quirk,
 						&byt_rvp_platform_data },
-	{"10EC5642", "bytcr_rt5640", "intel/fw_sst_0f28.bin", "bytcr_rt5640", NULL,
+	{"10EC5642", "bytcr_rt5640", "/*(DEBLOBBED)*/", "bytcr_rt5640", NULL,
 						&byt_rvp_platform_data },
-	{"INTCCFFD", "bytcr_rt5640", "intel/fw_sst_0f28.bin", "bytcr_rt5640", NULL,
+	{"INTCCFFD", "bytcr_rt5640", "/*(DEBLOBBED)*/", "bytcr_rt5640", NULL,
 						&byt_rvp_platform_data },
-	{"10EC5651", "bytcr_rt5651", "intel/fw_sst_0f28.bin", "bytcr_rt5651", NULL,
+	{"10EC5651", "bytcr_rt5651", "/*(DEBLOBBED)*/", "bytcr_rt5651", NULL,
 						&byt_rvp_platform_data },
 	{},
 };
 
 /* Cherryview-based platforms: CherryTrail and Braswell */
 static struct sst_acpi_mach sst_acpi_chv[] = {
-	{"10EC5670", "cht-bsw-rt5672", "intel/fw_sst_22a8.bin", "cht-bsw", NULL,
+	{"10EC5670", "cht-bsw-rt5672", "/*(DEBLOBBED)*/", "cht-bsw", NULL,
 						&chv_platform_data },
-	{"10EC5645", "cht-bsw-rt5645", "intel/fw_sst_22a8.bin", "cht-bsw", NULL,
+	{"10EC5645", "cht-bsw-rt5645", "/*(DEBLOBBED)*/", "cht-bsw", NULL,
 						&chv_platform_data },
-	{"10EC5650", "cht-bsw-rt5645", "intel/fw_sst_22a8.bin", "cht-bsw", NULL,
+	{"10EC5650", "cht-bsw-rt5645", "/*(DEBLOBBED)*/", "cht-bsw", NULL,
 						&chv_platform_data },
-	{"193C9890", "cht-bsw-max98090", "intel/fw_sst_22a8.bin", "cht-bsw", NULL,
+	{"193C9890", "cht-bsw-max98090", "/*(DEBLOBBED)*/", "cht-bsw", NULL,
 						&chv_platform_data },
 	/* some CHT-T platforms rely on RT5640, use Baytrail machine driver */
-	{"10EC5640", "bytcr_rt5640", "intel/fw_sst_22a8.bin", "bytcr_rt5640", cht_quirk,
+	{"10EC5640", "bytcr_rt5640", "/*(DEBLOBBED)*/", "bytcr_rt5640", cht_quirk,
 						&chv_platform_data },
 
 	{},

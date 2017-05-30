@@ -1989,7 +1989,7 @@ static int coda_firmware_request(struct coda_dev *dev)
 	dev_dbg(&dev->plat_dev->dev, "requesting firmware '%s' for %s\n", fw,
 		coda_product_name(dev->devtype->product));
 
-	return request_firmware_nowait(THIS_MODULE, true, fw,
+	return reject_firmware_nowait(THIS_MODULE, true, fw,
 				       &dev->plat_dev->dev, GFP_KERNEL, dev,
 				       coda_fw_callback);
 }
@@ -2078,8 +2078,8 @@ enum coda_platform {
 static const struct coda_devtype coda_devdata[] = {
 	[CODA_IMX27] = {
 		.firmware     = {
-			"vpu_fw_imx27_TO2.bin",
-			"v4l-codadx6-imx27.bin"
+			"/*(DEBLOBBED)*/",
+			"/*(DEBLOBBED)*/"
 		},
 		.product      = CODA_DX6,
 		.codecs       = codadx6_codecs,
@@ -2091,8 +2091,8 @@ static const struct coda_devtype coda_devdata[] = {
 	},
 	[CODA_IMX53] = {
 		.firmware     = {
-			"vpu_fw_imx53.bin",
-			"v4l-coda7541-imx53.bin"
+			"/*(DEBLOBBED)*/",
+			"/*(DEBLOBBED)*/"
 		},
 		.product      = CODA_7541,
 		.codecs       = coda7_codecs,
@@ -2105,8 +2105,8 @@ static const struct coda_devtype coda_devdata[] = {
 	},
 	[CODA_IMX6Q] = {
 		.firmware     = {
-			"vpu_fw_imx6q.bin",
-			"v4l-coda960-imx6q.bin"
+			"/*(DEBLOBBED)*/",
+			"/*(DEBLOBBED)*/"
 		},
 		.product      = CODA_960,
 		.codecs       = coda9_codecs,
@@ -2119,8 +2119,8 @@ static const struct coda_devtype coda_devdata[] = {
 	},
 	[CODA_IMX6DL] = {
 		.firmware     = {
-			"vpu_fw_imx6d.bin",
-			"v4l-coda960-imx6dl.bin"
+			"/*(DEBLOBBED)*/",
+			"/*(DEBLOBBED)*/"
 		},
 		.product      = CODA_960,
 		.codecs       = coda9_codecs,

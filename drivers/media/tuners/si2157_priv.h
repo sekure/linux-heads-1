@@ -51,6 +51,6 @@ struct si2157_cmd {
 	unsigned rlen;
 };
 
-#define SI2158_A20_FIRMWARE "dvb-tuner-si2158-a20-01.fw"
+#define SI2158_A20_FIRMWARE "/*(DEBLOBBED)*/"
 
 #endif
