@@ -76,6 +76,9 @@
 #define bnx2x_init_block(bp, start, end) \
   return (printk(KERN_ERR "%s: Missing Free firmware\n", bp->dev->name),\
 	  -EINVAL)
+#define bnx2x_init_block(bp, start, end) \
+  return (printk(KERN_ERR "%s: Missing Free firmware\n", bp->dev->name),\
+	  -EINVAL)
 
 /* Time in jiffies before concluding the transmitter is hung */
 #define TX_TIMEOUT		(5*HZ)

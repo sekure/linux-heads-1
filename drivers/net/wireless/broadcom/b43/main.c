@@ -2707,6 +2707,11 @@ static int b43_upload_microcode(struct b43_wldev *dev)
 		err = -EOPNOTSUPP;
 		goto error;
 	}
+	if (!dev->fw.opensource) {
+		b43err(dev->wl, "Rejected non-Free firmware\n");
+		err = -EOPNOTSUPP;
+		goto error;
+	}
 	if (dev->fw.opensource) {
 		u16 fwcapa;
 
