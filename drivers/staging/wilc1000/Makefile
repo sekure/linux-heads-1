@@ -1,7 +1,7 @@
 obj-$(CONFIG_WILC1000) += wilc1000.o
 
-ccflags-y += -DFIRMWARE_1002=""\"/*(DEBLOBBED)*/\""" \
-		-DFIRMWARE_1003=""\"/*(DEBLOBBED)*/\"""
+ccflags-y += -DFIRMWARE_1002="""\"/*(DEBLOBBED)*/\"""" \
+		-DFIRMWARE_1003="""\"/*(DEBLOBBED)*/\""""
 
 ccflags-y += -I$(src)/ -DWILC_ASIC_A0 -DWILC_DEBUGFS
 
