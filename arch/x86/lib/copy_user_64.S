@@ -66,7 +66,7 @@ ENTRY(copy_user_generic_unrolled)
 	movl %edx,%ecx
 	andl $63,%edx
 	shrl $6,%ecx
-	jz 17f
+	jz .L_copy_short_string
 1:	movq (%rsi),%r8
 2:	movq 1*8(%rsi),%r9
 3:	movq 2*8(%rsi),%r10
@@ -87,7 +87,8 @@ ENTRY(copy_user_generic_unrolled)
 	leaq 64(%rdi),%rdi
 	decl %ecx
 	jnz 1b
-17:	movl %edx,%ecx
+.L_copy_short_string:
+	movl %edx,%ecx
 	andl $7,%edx
 	shrl $3,%ecx
 	jz 20f
@@ -106,8 +107,8 @@ ENTRY(copy_user_generic_unrolled)
 	incq %rdi
 	decl %ecx
 	jnz 21b
-23:	xor %eax,%eax
-	ASM_USER_ACCESS_END
+23:	ASM_USER_ACCESS_END
+	xor %eax,%eax
 	FRAME_END
 	pax_ret copy_user_generic_unrolled
 
@@ -177,8 +178,8 @@ ENTRY(copy_user_generic_string)
 2:	movl %edx,%ecx
 3:	rep
 	movsb
-	xorl %eax,%eax
 	ASM_USER_ACCESS_END
+	xorl %eax,%eax
 	FRAME_END
 	pax_ret copy_user_generic_string
 
@@ -209,11 +210,13 @@ EXPORT_SYMBOL(copy_user_generic_string)
 ENTRY(copy_user_enhanced_fast_string)
 	FRAME_BEGIN
 	ASM_USER_ACCESS_BEGIN
+	cmpl $64,%edx
+	jb .L_copy_short_string	/* less then 64 bytes, avoid the costly 'rep' */
 	movl %edx,%ecx
 1:	rep
 	movsb
-	xorl %eax,%eax
 	ASM_USER_ACCESS_END
+	xorl %eax,%eax
 	FRAME_END
 	pax_ret copy_user_enhanced_fast_string
 
@@ -340,8 +343,8 @@ ENTRY(__copy_user_nocache)
 
 	/* Finished copying; fence the prior stores */
 .L_finish_copy:
-	xorl %eax,%eax
 	ASM_USER_ACCESS_END
+	xorl %eax,%eax
 	sfence
 	FRAME_END
 	pax_ret __copy_user_nocache

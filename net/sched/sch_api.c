@@ -277,9 +277,6 @@ static struct Qdisc *qdisc_match_from_root(struct Qdisc *root, u32 handle)
 void qdisc_hash_add(struct Qdisc *q)
 {
 	if ((q->parent != TC_H_ROOT) && !(q->flags & TCQ_F_INGRESS)) {
-		struct Qdisc *root = qdisc_dev(q)->qdisc;
-
-		WARN_ON_ONCE(root == &noop_qdisc);
 		ASSERT_RTNL();
 		hash_add_rcu(qdisc_dev(q)->qdisc_hash, &q->hash, q->handle);
 	}
@@ -840,7 +837,7 @@ static int qdisc_graft(struct net_device *dev, struct Qdisc *parent,
 
 			old = dev_graft_qdisc(dev_queue, new);
 			if (new && i > 0)
-				atomic_inc(&new->refcnt);
+				qdisc_refcount_inc(new);
 
 			if (!ingress)
 				qdisc_destroy(old);
@@ -851,7 +848,7 @@ skip:
 			notify_and_destroy(net, skb, n, classid,
 					   dev->qdisc, new);
 			if (new && !new->ops->attach)
-				atomic_inc(&new->refcnt);
+				qdisc_refcount_inc(new);
 			dev->qdisc = new ? : &noop_qdisc;
 
 			if (new && new->ops->attach)
@@ -1008,6 +1005,9 @@ static struct Qdisc *qdisc_create(struct net_device *dev,
 
 		return sch;
 	}
+	/* ops->init() failed, we call ->destroy() like qdisc_create_dflt() */
+	if (ops->destroy)
+		ops->destroy(sch);
 err_out3:
 	dev_put(dev);
 	kfree((char *) sch - sch->padded);
@@ -1244,7 +1244,7 @@ replay:
 				if (q == p ||
 				    (p && check_loop(q, p, 0)))
 					return -ELOOP;
-				atomic_inc(&q->refcnt);
+				qdisc_refcount_inc(q);
 				goto graft;
 			} else {
 				if (!q)
