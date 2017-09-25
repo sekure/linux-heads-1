@@ -2366,25 +2366,6 @@ int bnx2x_compare_fw_ver(struct bnx2x *bp, u32 load_code, bool print_err)
 
 		/*(DEBLOBBED)*/
 
-/* mark PMF if applicable */
-static void bnx2x_nic_load_pmf(struct bnx2x *bp, u32 load_code)
-{
-	if ((load_code == FW_MSG_CODE_DRV_LOAD_COMMON) ||
-	    (load_code == FW_MSG_CODE_DRV_LOAD_COMMON_CHIP) ||
-	    (load_code == FW_MSG_CODE_DRV_LOAD_PORT)) {
-		bp->port.pmf = 1;
-		/* We need the barrier to ensure the ordering between the
-		 * writing to bp->port.pmf here and reading it from the
-		 * bnx2x_periodic_task().
-		 */
-		smp_mb();
-	} else {
-		bp->port.pmf = 0;
-	}
-
-	DP(NETIF_MSG_LINK, "pmf %d\n", bp->port.pmf);
-}
-
 static void bnx2x_nic_load_afex_dcc(struct bnx2x *bp, int load_code)
 {
 	if (((load_code == FW_MSG_CODE_DRV_LOAD_COMMON) ||
